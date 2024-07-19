@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+:root {
+  --primary-color: #4A97FF;
+  --secondary-color: #ACE0FF;
+  --third-color: #DADADA;
+
+  --light-mode: #F1F6F9;
+  --dark-mode: #212A3E;
+  
+  /* Estilos drop shadow y box shadow */
+
+  --box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+  --drop-shadow: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.25));
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+
+.button {
+  padding: .5em;
+  margin: .5em;
+  font-size: 1em;
+  font-weight: bold;
+  color:  var(--secondary-color);
+  background-color: var(--primary-color);
+  border-radius: .5em;
+  border: 1px solid var(--primary-color);
+  white-space: nowrap;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); 
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed; 
+  pointer-events: none; 
+}
+
+.button:hover {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  transform: scale(1.05);
+  transform-origin: center;
+  transition: .3s;
+  cursor: pointer;
+}

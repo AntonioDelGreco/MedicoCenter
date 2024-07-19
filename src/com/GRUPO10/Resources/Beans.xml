@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd">
+     
+   	<bean id="beanConexion" class="com.GRUPO10.DaoImp.Conexion" scope="singleton">
+	</bean>
+	
+	<bean id="beanMedico" class="com.GRUPO10.Entidades.Medico" scope="prototype">
+	</bean>
+	
+	<bean id="beanUsuario" class="com.GRUPO10.Entidades.Usuario" scope="prototype">
+	</bean>
+	
+	<bean id="beanTurno" class="com.GRUPO10.Entidades.Turno" scope="prototype">
+	</bean>
+	
+	<bean id="beanPaciente" class="com.GRUPO10.Entidades.Paciente" scope="prototype">
+	</bean>
+	
+	<bean id="beanEspecialidad" class="com.GRUPO10.Entidades.Especialidad" scope="prototype">
+	</bean>
+	
+	<bean id="beanProvincia" class="com.GRUPO10.Entidades.Provincia" scope="prototype">
+	</bean>
+	
+	<bean id="beanLocalidad" class="com.GRUPO10.Entidades.Localidad" scope="prototype">
+	</bean>
+	
+<!-- BEANS DE DAO  -->
+	<bean id="beanDaoMedico" class="com.GRUPO10.DaoImp.DaoMedico" scope="singleton">
+		<property name="conexion" ref="beanConexion"></property>
+	</bean>
+	
+	<bean id="beanDaoEspecialidad" class="com.GRUPO10.DaoImp.DaoEspecialidad" scope="singleton">
+		<property name="conexion" ref="beanConexion"></property>
+	</bean>
+	
+	<bean id="beanDaoPaciente" class="com.GRUPO10.DaoImp.DaoPaciente" scope="singleton">
+		<property name="conexion" ref="beanConexion"></property>
+	</bean>
+	
+	<bean id="beanDaoTurno" class="com.GRUPO10.DaoImp.DaoTurno" scope="singleton">
+		<property name="conexion" ref="beanConexion"></property>
+	</bean>
+	
+	<bean id="beanDaoUsuario" class="com.GRUPO10.DaoImp.DaoUsuario" scope="singleton">
+		<property name="conexion" ref="beanConexion"></property>
+	</bean>
+	
+	<bean id="beanDaoProvincia" class="com.GRUPO10.DaoImp.DaoProvincia" scope="singleton">
+		<property name="conexion" ref="beanConexion"></property>
+	</bean>
+	
+	<bean id="beanDaoLocalidad" class="com.GRUPO10.DaoImp.DaoLocalidad" scope="singleton">
+		<property name="conexion" ref="beanConexion"></property>
+	</bean>
+	
+<!-- BEANS DE NEGOCIO -->
+   <bean id="beanMedicoNegocio" class="com.GRUPO10.NegocioImp.MedicoNegocio" scope="singleton">
+		<property name="daoMedico" ref="beanDaoMedico"></property>
+	</bean>
+	
+	<bean id="beanPacienteNegocio" class="com.GRUPO10.NegocioImp.PacienteNegocio" scope="singleton">
+		<property name="daoPaciente" ref="beanDaoPaciente"></property>
+	</bean>
+	
+	<bean id="beanTurnoNegocio" class="com.GRUPO10.NegocioImp.TurnoNegocio" scope="singleton">
+		<property name="daoTurno" ref="beanDaoTurno"></property>
+	</bean>
+	
+	<bean id="beanUsuarioNegocio" class="com.GRUPO10.NegocioImp.UsuarioNegocio" scope="singleton">
+		<property name="daoUsuario" ref="beanDaoUsuario"></property>
+	</bean> 
+	
+	<bean id="beanEspecialidadNegocio" class="com.GRUPO10.NegocioImp.EspecialidadNegocio" scope="singleton">
+		<property name="daoEspecialidad" ref="beanDaoEspecialidad"></property>
+	</bean>
+	
+	<bean id="beanProvinciaNegocio" class="com.GRUPO10.NegocioImp.ProvinciaNegocio" scope="singleton">
+		<property name="daoProvincia" ref="beanDaoProvincia"></property>
+	</bean>
+	
+	<bean id="beanLocalidadNegocio" class="com.GRUPO10.NegocioImp.LocalidadNegocio" scope="singleton">
+		<property name="daoLocalidad" ref="beanDaoLocalidad"></property>
+	</bean>
+	
+</beans>
